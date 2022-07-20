@@ -1,6 +1,6 @@
 import 'package:certificados/model/certificado.dart';
-import 'package:certificados/service/interfaces/i_service_certificado.dart';
-import 'package:certificados/service/sqflite/connection.dart';
+import 'package:certificados/dao/interfaces/i_service_certificado.dart';
+import 'package:certificados/dao/sqflite/connection.dart';
 import 'package:sqflite/sqflite.dart';
 
 class ServiceCertificado extends IServiceCertificado {

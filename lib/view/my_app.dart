@@ -1,3 +1,5 @@
+import 'package:certificados/style/app_theme.dart';
+import 'package:certificados/view/certificado/certificado_page.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
@@ -7,12 +9,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Certificados',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: themeData,
       debugShowCheckedModeBanner: false,
-      home: const Scaffold(),
-      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const CertificadoPage(),
     );
   }
 }
