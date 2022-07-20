@@ -1,6 +1,6 @@
 import 'package:certificados/model/certificado.dart';
 
-abstract class IServiceCertificado {
+abstract class IDaoCertificado {
   Future insert(Certificado object);
 
   Future update(Certificado object);

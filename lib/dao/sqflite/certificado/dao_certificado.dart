@@ -3,7 +3,7 @@ import 'package:certificados/dao/interfaces/i_service_certificado.dart';
 import 'package:certificados/dao/sqflite/connection.dart';
 import 'package:sqflite/sqflite.dart';
 
-class ServiceCertificado extends IServiceCertificado {
+class DaoCertificado extends IDaoCertificado {
   late Database _db;
 
   @override
@@ -29,7 +29,7 @@ class ServiceCertificado extends IServiceCertificado {
         categoria: linha['categoria'],
         quantidadeHoras: linha['quantidadeHoras'],
         quantidadeHorasValidadas: linha['quantidadeHorasValidadas'],
-        validado: linha['validado'],
+        validado: linha['validado'] == 1,
         urlImagem: linha['urlImagem'],
       );
     });

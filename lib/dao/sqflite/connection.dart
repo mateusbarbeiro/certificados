@@ -9,6 +9,7 @@ class Connection {
       var path = join(await getDatabasesPath(), 'certificado');
       _db = await openDatabase(path, version: 1, onCreate: (db, v) {
         db.execute(createTableCertificado);
+        db.execute(insertCertificado);
       });
     }
     return _db!;
@@ -17,14 +18,27 @@ class Connection {
 
 const createTableCertificado = '''
   CREATE TABLE certificado (
-    id INTEGER NOT NULL PRIMARY KEY
-    ,titulo VARCHAR(200) NOT NULL
-    ,descricao VARCHAR(20) NOT NULL
+    id INTEGER PRIMARY KEY
+    ,titulo VARCHAR(50) NOT NULL
+    ,descricao VARCHAR(200) NOT NULL
     ,dataEmissao VARCHAR(20) NOT NULL
     ,quantidadeHoras INTEGER NOT NULL
     ,quantidadeHorasValidadas INTEGER NULL
-    ,validado BOOLEAN NOT NULL CHECK (quantidadeHorasValidadas IN(0,1))
+    ,validado BOOLEAN NOT NULL CHECK (validado IN(0,1))
     ,categoria VARCHAR(30) NOT NULL
     ,urlImage VARCHAR(20) NULL
   )
 ''';
+
+const insertCertificado =
+    '''INSERT INTO certificado (titulo, dataEmissao, descricao, 
+      categoria, quantidadeHoras, quantidadeHorasValidadas, 
+      validado, urlImage) VALUES (
+        'object.titulo',
+        'object.dataEmissao',
+        'object.descricao',
+        'object.categoria',
+        5,
+        5,
+        true,
+        'object.urlImagem')''';
