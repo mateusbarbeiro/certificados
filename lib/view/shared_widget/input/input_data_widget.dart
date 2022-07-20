@@ -8,7 +8,7 @@ class InputDataWidget extends StatelessWidget {
     required this.hintText,
     required this.paddingBottom,
     required this.onChanged,
-    required this.controller,
+    this.controller,
     this.validator,
   }) : super(key: key);
 
@@ -16,7 +16,7 @@ class InputDataWidget extends StatelessWidget {
   final double? paddingTop;
   final String hintText;
   final void Function(String) onChanged;
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final String? Function(String?)? validator;
 
   @override
