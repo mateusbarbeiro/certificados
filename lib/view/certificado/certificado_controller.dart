@@ -1,5 +1,5 @@
 import 'package:certificados/model/certificado.dart';
-import 'package:certificados/dao/interfaces/i_service_certificado.dart';
+import 'package:certificados/dao/interfaces/i_dao_certificado.dart';
 import 'package:get_it/get_it.dart';
 
 class CertificadoController {

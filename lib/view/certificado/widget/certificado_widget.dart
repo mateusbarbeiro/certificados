@@ -1,4 +1,4 @@
-import 'package:certificados/components/card_certificado.dart';
+import 'package:certificados/view/shared_widget/card_certificado.dart';
 import 'package:certificados/model/certificado.dart';
 import 'package:certificados/view/certificado/certificado_controller.dart';
 import 'package:certificados/view/certificado/certificado_page.dart';
