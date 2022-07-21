@@ -156,15 +156,16 @@ class CertificadoPageWidget extends State<CertificadoFormPage> {
 
   InputTextoWidget inputCategoriaa() {
     return InputTextoWidget(
-        labelText: "Categoria",
-        paddingBottom: 0,
-        maxLength: 50,
-        paddingTop: 25,
-        isIconDate: true,
-        icon: const Icon(
-          Icons.category,
-          color: Colors.black87,
-        ));
+      labelText: "Categoria",
+      paddingBottom: 0,
+      maxLength: 50,
+      paddingTop: 25,
+      isIconDate: true,
+      icon: const Icon(
+        Icons.category,
+        color: Colors.black87,
+      ),
+    );
   }
 
   InputTextoWidget inputUrl() {
@@ -179,7 +180,6 @@ class CertificadoPageWidget extends State<CertificadoFormPage> {
         color: Colors.black87,
       ),
       controller: controller.urlImagemController,
-      //validator: controller.nomeValidator,
     );
   }
 
