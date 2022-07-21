@@ -1,13 +1,12 @@
 import 'package:certificados/model/certificado.dart';
-import 'package:certificados/dao/interfaces/i_dao_certificado.dart';
+import 'package:certificados/model/certificado_service.dart';
 import 'package:certificados/view/certificado/certificado_form_page.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 
 class CertificadoController {
   final formKey = GlobalKey<FormState>();
-  final IDaoCertificado _dao = GetIt.I.get<IDaoCertificado>();
+  final CertificadoService _service = CertificadoService();
+
   final tituloController = TextEditingController();
   final descricaoController = TextEditingController();
   final dataEmissaoController = TextEditingController();
@@ -24,7 +23,7 @@ class CertificadoController {
   ];
 
   Future<List<Certificado>> get allCertificados async {
-    return _dao.getAll();
+    return _service.getAll();
   }
 
   Future goToForm(BuildContext context) async {
@@ -50,7 +49,7 @@ class CertificadoController {
       urlImagem: urlImagemController.text,
     );
 
-    _dao.insert(certificado);
+    _service.insert(certificado);
     Navigator.pop(context);
   }
 }

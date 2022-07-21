@@ -13,18 +13,22 @@ class CertificadoWidget extends State<CertificadoPage> {
       appBar: AppBar(
         title: const Text('Certificados'),
         actions: [
-          IconButton(
-            onPressed: () => controller.goToForm(context).then(
-                  (value) => setState(() {}),
-                ),
-            icon: const Icon(
-              Icons.add,
-              color: Colors.white,
-            ),
-          ),
+          _addCertificadoBotao(context),
         ],
       ),
       body: _listaCertificados(),
+    );
+  }
+
+  IconButton _addCertificadoBotao(BuildContext context) {
+    return IconButton(
+      onPressed: () => controller.goToForm(context).then(
+            (value) => setState(() {}),
+          ),
+      icon: const Icon(
+        Icons.add,
+        color: Colors.white,
+      ),
     );
   }
 
