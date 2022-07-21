@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       title: 'Certificados',
       theme: themeData,
       debugShowCheckedModeBanner: false,
-      home: const CertificadoFormPage(),
+      home: const CertificadoPage(),
     );
   }
 }

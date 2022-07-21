@@ -146,7 +146,7 @@ class CertificadoPageWidget extends State<CertificadoFormPage> {
       paddingTop: 25,
       isIconDate: true,
       icon: const Icon(
-        Icons.ac_unit_outlined,
+        Icons.category,
         color: Colors.black87,
       ),
       controller: controller.categoriaController,
