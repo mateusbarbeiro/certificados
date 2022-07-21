@@ -33,6 +33,7 @@ class CustomSwitch extends StatelessWidget {
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.symmetric(
             horizontal: 20,
+            vertical: 3,
           ),
           labelText: label,
           labelStyle: const TextStyle(

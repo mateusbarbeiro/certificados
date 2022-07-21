@@ -14,6 +14,8 @@ class CertificadoPageWidget extends State<CertificadoFormPage> {
 
   @override
   Widget build(BuildContext context) {
+    controller.quantHorasValidadasController.text = '0';
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Cadastro"),
@@ -75,7 +77,7 @@ class CertificadoPageWidget extends State<CertificadoFormPage> {
     return InputDataWidget(
       hintText: 'Data emissão',
       paddingBottom: 0,
-      paddingTop: 5,
+      paddingTop: 15,
       onChanged: (String? value) {
         setState(
           () {
@@ -97,7 +99,7 @@ class CertificadoPageWidget extends State<CertificadoFormPage> {
       mask: "####",
       paddingBottom: 0,
       maxLength: 4,
-      paddingTop: 5,
+      paddingTop: 15,
       isIconDate: true,
       icon: const Icon(
         Icons.lock_clock,
@@ -114,7 +116,7 @@ class CertificadoPageWidget extends State<CertificadoFormPage> {
       mask: "####",
       paddingBottom: 0,
       maxLength: 4,
-      paddingTop: 5,
+      paddingTop: 15,
       isIconDate: true,
       icon: const Icon(
         Icons.lock_clock,
@@ -126,7 +128,7 @@ class CertificadoPageWidget extends State<CertificadoFormPage> {
 
   CustomSwitch certificadoValido() {
     return CustomSwitch(
-      paddingTop: 10,
+      paddingTop: 15,
       paddingBottom: 0,
       label: "Certifcado valido",
       value: controller.status,
@@ -140,6 +142,8 @@ class CertificadoPageWidget extends State<CertificadoFormPage> {
 
   AppDropdownInput inputCategoria() {
     return AppDropdownInput<String>(
+      paddingBottom: 0,
+      paddingTop: 30,
       hintText: "Grupo",
       options: controller.grupos,
       value: controller.grupo,
@@ -154,26 +158,12 @@ class CertificadoPageWidget extends State<CertificadoFormPage> {
     );
   }
 
-  InputTextoWidget inputCategoriaa() {
-    return InputTextoWidget(
-      labelText: "Categoria",
-      paddingBottom: 0,
-      maxLength: 50,
-      paddingTop: 25,
-      isIconDate: true,
-      icon: const Icon(
-        Icons.category,
-        color: Colors.black87,
-      ),
-    );
-  }
-
   InputTextoWidget inputUrl() {
     return InputTextoWidget(
       labelText: "Url imagem",
       paddingBottom: 0,
       maxLength: 200,
-      paddingTop: 18,
+      paddingTop: 25,
       isIconDate: true,
       icon: const Icon(
         Icons.image,
