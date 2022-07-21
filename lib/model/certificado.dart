@@ -5,7 +5,7 @@ class Certificado {
     required this.descricao,
     required this.dataEmissao,
     required this.quantidadeHoras,
-    required this.quantidadeHorasValidadas,
+    this.quantidadeHorasValidadas = 0,
     required this.validado,
     required this.categoria,
     this.urlImagem,

@@ -1,4 +1,5 @@
 import 'package:certificados/view/certificado/certificado_controller.dart';
+import 'package:certificados/view/shared_widget/botao_widget.dart';
 import 'package:certificados/view/shared_widget/custom_switch.dart';
 import 'package:certificados/view/certificado/certificado_form_page.dart';
 import 'package:certificados/view/shared_widget/input/input_data_widget.dart';
@@ -7,7 +8,6 @@ import 'package:flutter/material.dart';
 
 class CertificadoPageWidget extends State<CertificadoFormPage> {
   final formKey = GlobalKey<FormState>();
-  bool _status = false;
 
   final CertificadoController controller = CertificadoController();
 
@@ -29,6 +29,8 @@ class CertificadoPageWidget extends State<CertificadoFormPage> {
               inputHorasValidas(),
               certificadoValido(),
               inputCategoria(),
+              inputUrl(),
+              botaoCadastrar(),
             ],
           ),
         ),
@@ -126,13 +128,10 @@ class CertificadoPageWidget extends State<CertificadoFormPage> {
       paddingTop: 10,
       paddingBottom: 0,
       label: "Certifcado valido",
-      value: _status,
+      value: controller.status,
       onChanged: (bool value) {
         setState(() {
-          _status = value;
-          if (value != null) {
-            controller.certificadoValidadoController.text = _status.toString();
-          }
+          controller.status = value;
         });
       },
     );
@@ -151,6 +150,34 @@ class CertificadoPageWidget extends State<CertificadoFormPage> {
       ),
       controller: controller.categoriaController,
       //validator: controller.nomeValidator,
+    );
+  }
+
+  InputTextoWidget inputUrl() {
+    return InputTextoWidget(
+      labelText: "Url imagem",
+      paddingBottom: 0,
+      maxLength: 200,
+      paddingTop: 18,
+      isIconDate: true,
+      icon: const Icon(
+        Icons.image,
+        color: Colors.black87,
+      ),
+      controller: controller.urlImagemController,
+      //validator: controller.nomeValidator,
+    );
+  }
+
+  BotaoWidget botaoCadastrar() {
+    return BotaoWidget(
+      paddingTop: 20,
+      paddingBottom: 30,
+      labelText: "CADASTRAR",
+      largura: 340,
+      corBotao:Theme.of(context).primaryColorDark,
+      corTexto: Colors.white,
+      onPressed: () => controller.insertCertificado(context),
     );
   }
 }

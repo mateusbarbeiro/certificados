@@ -13,18 +13,39 @@ class CertificadoController {
   final quantHorasController = TextEditingController();
   final quantHorasValidadasController = TextEditingController();
   final certificadoValidadoController = TextEditingController();
+  final urlImagemController = TextEditingController();
   final categoriaController = TextEditingController();
+  bool status = false;
   final formKey = GlobalKey<FormState>();
 
   Future<List<Certificado>> get allCertificados async {
     return _dao.getAll();
   }
 
-  void goToForm(BuildContext context) {
-    Navigator.of(context).push(
+  Future goToForm(BuildContext context) async {
+    await Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => const CertificadoFormPage(),
       ),
     );
+  }
+
+  void insertCertificado(BuildContext context) {
+    Certificado certificado = Certificado(
+      titulo: tituloController.text,
+      descricao: descricaoController.text,
+      dataEmissao: dataEmissaoController.text,
+      quantidadeHoras: int.parse(quantHorasController.text),
+      quantidadeHorasValidadas: int.parse(
+          quantHorasValidadasController.text == ""
+              ? quantHorasValidadasController.text
+              : "0"),
+      validado: status,
+      categoria: categoriaController.text,
+      urlImagem: urlImagemController.text,
+    );
+
+    _dao.insert(certificado);
+    Navigator.pop(context);
   }
 }

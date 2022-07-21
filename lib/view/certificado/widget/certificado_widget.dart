@@ -14,7 +14,9 @@ class CertificadoWidget extends State<CertificadoPage> {
         title: const Text('Certificados'),
         actions: [
           IconButton(
-            onPressed: () => controller.goToForm(context),
+            onPressed: () => controller.goToForm(context).then(
+                  (value) => setState(() {}),
+                ),
             icon: const Icon(
               Icons.add,
               color: Colors.white,

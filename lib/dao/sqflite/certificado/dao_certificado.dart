@@ -70,7 +70,7 @@ class DaoCertificado extends IDaoCertificado {
 
     var sql = '''INSERT INTO certificado (titulo, dataEmissao, descricao, 
       categoria, quantidadeHoras, quantidadeHorasValidadas, 
-      validado, urlImagem) VALUES (?, ?, ?, ?, ?, ?, ?, ?)''';
+      validado, urlImage) VALUES (?, ?, ?, ?, ?, ?, ?, ?)''';
     await _db.rawInsert(sql, [
       object.titulo,
       object.dataEmissao,
@@ -95,7 +95,7 @@ class DaoCertificado extends IDaoCertificado {
 
     var sql = '''INSERT INTO certificado (id, titulo, dataEmissao, descricao, 
       categoria, quantidadeHoras, quantidadeHorasValidadas, 
-      validado, urlImagem) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)''';
+      validado, urlImage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)''';
     await _db.rawInsert(sql, [
       object.id,
       object.titulo,
