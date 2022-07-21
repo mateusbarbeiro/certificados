@@ -52,4 +52,8 @@ class CertificadoController {
     _service.insert(certificado);
     Navigator.pop(context);
   }
+
+  Future<Certificado> getById(int id) async {
+    return await _service.getById(id);
+  }
 }
