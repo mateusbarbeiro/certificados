@@ -2,6 +2,7 @@ import 'package:certificados/view/certificado/certificado_controller.dart';
 import 'package:certificados/view/shared_widget/botao_widget.dart';
 import 'package:certificados/view/shared_widget/custom_switch.dart';
 import 'package:certificados/view/certificado/certificado_form_page.dart';
+import 'package:certificados/view/shared_widget/input/app_dropdown_input.dart';
 import 'package:certificados/view/shared_widget/input/input_data_widget.dart';
 import 'package:certificados/view/shared_widget/input/input_texto_widget.dart';
 import 'package:flutter/material.dart';
@@ -137,20 +138,33 @@ class CertificadoPageWidget extends State<CertificadoFormPage> {
     );
   }
 
-  InputTextoWidget inputCategoria() {
-    return InputTextoWidget(
-      labelText: "Categoria",
-      paddingBottom: 0,
-      maxLength: 50,
-      paddingTop: 25,
-      isIconDate: true,
-      icon: const Icon(
-        Icons.category,
-        color: Colors.black87,
-      ),
-      controller: controller.categoriaController,
-      //validator: controller.nomeValidator,
+  AppDropdownInput inputCategoria() {
+    return AppDropdownInput<String>(
+      hintText: "Grupo",
+      options: controller.grupos,
+      value: controller.grupo,
+      onChanged: (String? value) {
+        setState(() {
+          if (value != null) {
+            controller.grupo = value;
+          }
+        });
+      },
+      getLabel: (String value) => value,
     );
+  }
+
+  InputTextoWidget inputCategoriaa() {
+    return InputTextoWidget(
+        labelText: "Categoria",
+        paddingBottom: 0,
+        maxLength: 50,
+        paddingTop: 25,
+        isIconDate: true,
+        icon: const Icon(
+          Icons.category,
+          color: Colors.black87,
+        ));
   }
 
   InputTextoWidget inputUrl() {
@@ -175,7 +189,7 @@ class CertificadoPageWidget extends State<CertificadoFormPage> {
       paddingBottom: 30,
       labelText: "CADASTRAR",
       largura: 340,
-      corBotao:Theme.of(context).primaryColorDark,
+      corBotao: Theme.of(context).primaryColorDark,
       corTexto: Colors.white,
       onPressed: () => controller.insertCertificado(context),
     );

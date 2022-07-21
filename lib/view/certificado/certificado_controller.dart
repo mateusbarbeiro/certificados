@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
 class CertificadoController {
+  final formKey = GlobalKey<FormState>();
   final IDaoCertificado _dao = GetIt.I.get<IDaoCertificado>();
   final tituloController = TextEditingController();
   final descricaoController = TextEditingController();
@@ -14,9 +15,13 @@ class CertificadoController {
   final quantHorasValidadasController = TextEditingController();
   final certificadoValidadoController = TextEditingController();
   final urlImagemController = TextEditingController();
-  final categoriaController = TextEditingController();
   bool status = false;
-  final formKey = GlobalKey<FormState>();
+  String? grupo;
+  List<String> grupos = [
+    "Grupo 1",
+    "Grupo 2",
+    "Grupo 3",
+  ];
 
   Future<List<Certificado>> get allCertificados async {
     return _dao.getAll();
@@ -41,7 +46,7 @@ class CertificadoController {
               ? quantHorasValidadasController.text
               : "0"),
       validado: status,
-      categoria: categoriaController.text,
+      categoria: grupo!,
       urlImagem: urlImagemController.text,
     );
 
